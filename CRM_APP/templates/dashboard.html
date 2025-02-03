@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Dashboard</title>
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
     <style>
         /* Only keeping necessary custom styles, using Tailwind classes for colors */
@@ -23,6 +29,7 @@
                 transform: translateY(-100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -30,8 +37,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUp {
@@ -39,6 +51,7 @@
                 transform: translateY(20px);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -59,33 +72,46 @@
 
         /* Custom colors for consistent grading */
         .primary-bg {
-            background-color: #1E40AF; /* Tailwind's indigo */
+            background-color: #1E40AF;
+            /* Tailwind's indigo */
         }
+
         .secondary-bg {
-            background-color: #4F46E5; /* Light indigo */
+            background-color: #4F46E5;
+            /* Light indigo */
         }
+
         .accent-bg {
-            background-color: #6366F1; /* Purple */
+            background-color: #6366F1;
+            /* Purple */
         }
+
         .text-primary {
-            color: #FFFFFF; /* White */
+            color: #FFFFFF;
+            /* White */
         }
+
         .button-primary {
-            background-color: #3B82F6; /* Tailwind's blue */
+            background-color: #3B82F6;
+            /* Tailwind's blue */
             border-color: #2563EB;
         }
+
         .button-primary:hover {
-            background-color: #2563EB; /* Darker blue on hover */
+            background-color: #2563EB;
+            /* Darker blue on hover */
         }
+
         .card-hover:hover {
             transform: translateY(-4px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
+
 <body class="bg-gray-100 min-h-screen overflow-x-hidden">
     <div class="overlay fixed inset-0 bg-indigo-900/50 z-40 hidden opacity-0 transition-opacity duration-300"></div>
-    
+
     <header class="bg-gray-800">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
@@ -97,12 +123,15 @@
                     <nav aria-label="Global" class="hidden md:block">
                         <ul class="flex items-center gap-6 text-sm">
                             <li>
-                                <a class="text-white transition hover:text-gray-200" href="{% url 'customer_list'%}"> List all </a>
+                                <a class="text-white font-bold transition hover:text-gray-200"
+                                    href="{% url 'customer_list'%}"> List all </a>
                             </li>
 
                             <li>
-                                <a class="text-white transition hover:text-gray-200" href=" {% url 'customer_create'%}"> Add New </a>
+                                <a class="text-white font-bold transition hover:text-gray-200"
+                                    href=" {% url 'customer_create'%}"> Add New </a>
                             </li>
+
                         </ul>
                     </nav>
                 </div>
@@ -111,9 +140,11 @@
     </header>
 
     <div class="pt-16 max-w-7xl mx-auto flex">
-        <aside class="sidebar fixed lg:static w-[240px] bg-indigo-50 h-[calc(100vh-4rem)] lg:h-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-45 overflow-y-auto p-4">
+        <aside
+            class="sidebar fixed lg:static w-[240px] bg-indigo-50 h-[calc(100vh-4rem)] lg:h-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-45 overflow-y-auto p-4">
             <div class="bg-white rounded-xl shadow-lg mb-6 p-4 transition-all duration-300 hover:card-hover">
-                <a href="#" class="flex items-center text-gray-600 hover:text-indigo-800 py-4 transition-all duration-300 hover:translate-x-1">
+                <a href="#"
+                    class="flex items-center text-gray-600 hover:text-indigo-800 py-4 transition-all duration-300 hover:translate-x-1">
                     <span class="material-icons-outlined mr-2">dashboard</span>
                     Home
                     <span class="material-icons-outlined ml-auto">keyboard_arrow_right</span>
@@ -121,7 +152,8 @@
             </div>
 
             <div class="bg-white rounded-xl shadow-lg px-4 transition-all duration-300 hover:card-hover">
-                <a href="{% url 'logout'%}" class="flex items-center text-gray-600 hover:text-indigo-800 py-4 transition-all duration-300 hover:translate-x-1">
+                <a href="{% url 'logout'%}"
+                    class="flex items-center text-gray-600 hover:text-indigo-800 py-4 transition-all duration-300 hover:translate-x-1">
                     <span class="material-icons-outlined mr-2">power_settings_new</span>
                     Log out
                     <span class="material-icons-outlined ml-auto">keyboard_arrow_right</span>
@@ -135,7 +167,8 @@
                     <h2 class="text-4xl md:text-5xl text-blue-900">
                         Total <br><strong>Customers</strong>
                     </h2>
-                    <span class="inline-block mt-8 px-8 py-2 rounded-full text-xl font-bold text-black border border-black border-2">
+                    <span
+                        class="inline-block mt-8 px-8 py-2 rounded-full text-xl font-bold text-black border border-black border-2">
                         {{ total_customers }}
                     </span>
                 </div>
@@ -143,14 +176,16 @@
                     <h2 class="text-4xl md:text-5xl text-blue-900">
                         Add <br><strong>Customer</strong>
                     </h2>
-                    <a href="{% url 'customer_create' %}" class="inline-block mt-8 px-8 py-2 rounded-full text-xl font-bold text-white bg-red-800 hover:bg-blue-900 transition-transform duration-300 hover:scale-105">
+                    <a href="{% url 'customer_create' %}"
+                        class="inline-block mt-8 px-8 py-2 rounded-full text-xl font-bold text-white bg-red-800 hover:bg-blue-900 transition-transform duration-300 hover:scale-105">
                         +
                     </a>
                 </div>
             </div>
 
             <div class="flex flex-col lg:flex-row gap-4 mb-6">
-                <a href="{%url 'customer_list'%}" class="flex-1 bg-indigo-100 border border-indigo-200 rounded-xl p-6 animate-fade-in">
+                <a href="{%url 'customer_list'%}"
+                    class="flex-1 bg-indigo-100 border border-indigo-200 rounded-xl p-6 animate-fade-in">
                     <h2 class="text-4xl md:text-5xl text-blue-900">
                         List <br><strong>Customers</strong>
                     </h2>
@@ -158,21 +193,21 @@
                     </span>
                 </a>
 
-                <a href="{% url 'customer_list' %}" class="flex-1 bg-indigo-100 border border-indigo-200 rounded-xl p-6 animate-fade-in">
+                <a href="{% url 'customer_list' %}"
+                    class="flex-1 bg-indigo-100 border border-indigo-200 rounded-xl p-6 animate-fade-in">
                     <h2 class="text-4xl md:text-5xl text-blue-900">
                         Recent <br><strong>Customer</strong>
                     </h2>
-                    <span class="inline-block mt-8 px-8 py-2 rounded-full text-xl font-bold text-black  " style="font-style: italic;">
-                        
+                    <span class="inline-block mt-8 px-8 py-2 rounded-full text-xl font-bold text-black  ">
                         {% if recent_customers %}
-                        {{ recent_customers.name }}  <!-- Display most recent customer name -->
-                    {% else %}
-                        No records found  <!-- Display when no recent customer exists -->
-                    {% endif %}
+                        {{ recent_customers.name }} <!-- Display most recent customer name -->
+                        {% else %}
+                        No records found <!-- Display when no recent customer exists -->
+                        {% endif %}
                     </span>
                 </a>
             </div>
-            
+
         </main>
     </div>
 
@@ -203,4 +238,5 @@
         const notificationIcon = document.querySelector('.material-icons-outlined:nth');
     </script>
 </body>
+
 </html>

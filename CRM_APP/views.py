@@ -4,6 +4,8 @@ from CRM_APP.models import Customer
 from CRM_APP.forms import CustomerForm,SignupForm,SignInForm
 from django.views.generic import View,CreateView,FormView
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
+
 
 class SignupView(CreateView):
     form_class=SignupForm
