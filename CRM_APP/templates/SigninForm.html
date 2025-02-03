@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // JavaScript to close the message box
+        function closeMessage() {
+            document.getElementById("message-box").style.display = "none";
+        }
+    </script>
+
+
+</head>
+
+<body class="bg-gray-100">
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <!-- Display messages (success or error) -->
+        {% if messages %}
+            <div id="message-box" class="w-full max-w-lg mx-auto">
+                {% for m in messages %}
+                    <div class="relative p-4 rounded-lg 
+                        {% if 'error' in m.tags %}
+                            bg-red-100 text-red-800 border-l-4 border-red-500
+                        {% elif 'success' in m.tags %}
+                            bg-green-100 text-green-800 border-l-4 border-green-500
+                        {% endif %}">
+                        <!-- Close button -->
+                        <button onclick="closeMessage()" class="absolute top-2 right-2 text-xl font-bold text-gray-500">
+                            &times;
+                        </button>
+                        {{ m }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+            <div class="relative py-3 sm:max-w-2xl sm:mx-auto"> <!-- Increased max-w-xl to max-w-2xl -->
+                <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-red-500 shadow-2xl transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+                <div class="border border-2 border-dark relative px-6 py-12 bg-white shadow-lg sm:rounded-3xl sm:p-16">
+                    <div class="max-w-lg mx-auto"> <!-- Increased max-w-md to max-w-lg -->
+                        <div>
+                            <h1 class="text-3xl font-semibold text-center">Login</h1>
+                        </div>
+                        <div class="divide-y divide-gray-200">
+                            <div class="py-8 text-lg leading-6 space-y-4 text-gray-700">
+                                <!-- Form fields -->
+                                {{ form }}
+
+                                <div class="relative mt-4">
+                                    <button type="submit" class="hover:bg-red-500 bg-cyan-500 text-white rounded-md px-6 py-2 w-full text-lg">
+                                        Submit
+                                    </button>
+                                </div>
+
+                                <div class="mt-6 text-center">
+                                    <span class="text-base text-gray-500">Create New Account?</span>
+                                    <a href="{% url 'signup' %}" class="text-blue-500 hover:text-blue-600 font-semibold">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
